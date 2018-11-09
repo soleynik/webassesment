@@ -1,0 +1,195 @@
+.header, .footer {
+    position:absolute;
+    right:0;
+    left:0;
+    /*background:#CCC*/
+}
+
+.header{
+
+    top:0;
+    border-bottom-width:2px;
+    border-bottom-color: #808080;
+    border-bottom-style: solid;
+    width: 100%;
+    margin: 0 auto;
+    background-color: white;
+    min-height: 60px;
+
+
+}
+
+.top-logo{
+    border: solid green;
+    border-width: 1px;
+    display:inline-block;
+    width: 50%;
+    height: 10%;
+    /*background-color: white;*/
+    margin-top: 1%;
+
+
+
+}
+.shrpas-img{
+
+    width: 40px;
+    height: 40px;
+    float:left;
+    margin-left: 5%;
+
+}
+
+.avatar-image{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    float:right;
+    margin-right: 5%;
+}
+
+
+.footer{
+    height: 65px;
+
+    bottom:0;
+    border-top-width:2px;
+    border-top-color: #808080;
+    border-top-style: solid;
+}
+
+
+.content{
+    right: 0;
+    left: 0;
+    position:absolute;
+    top:60px;
+    bottom:65px;
+
+    background-color: #404040;
+    border: solid green;
+    border-width: 2px;
+
+}
+
+
+
+
+
+
+
+.row{
+    margin: 0 auto;
+    border: solid red;
+    border-width: 4px;
+    background-color: white;
+    text-align: center;
+    width: 80%;
+
+}
+
+.row-top-position{
+    margin: 0 auto;
+    margin-top:15%;
+    display: block;
+    /*height: 80%;*/
+
+
+}
+
+
+
+.quiz-header{
+    text-align:center;
+    font-size: 18px;
+    /*border: solid brown;
+    border-width: 3px;*/
+    border-bottom-width:2px;
+    border-bottom-color: #808080;
+    border-bottom-style: solid;
+
+}
+
+.quiz-timeinfo{
+    /*border: solid black;
+    border-width: 4px;*/
+    height: 35px;
+    border-bottom-width:2px;
+    border-bottom-color: #808080;
+    border-bottom-style: solid;
+    padding-top: 5px;
+}
+
+
+
+.quiz-timeinfo-message{
+    display:inline-block;
+    width:50%;
+    text-align: center;
+    /*border: solid red;
+    border-width: 3px;*/
+}
+
+
+.quiz-info-content{
+    font-size: 16px;
+    line-height: 1.7;
+
+
+}
+
+
+.footer-block-start{
+    width:50%;
+    display: inline-block;
+    text-align: center;
+    margin-top: 10px;
+    /*border: solid blue;
+    border-width: 1px;*/
+    overflow: hidden;
+
+}
+
+
+.footer-section-start{
+    /*position:relative;*/
+    display: inline-block;
+    width: 180px;
+    font-size: 20px;
+    height: 35px;
+    background-color: transparent;
+    border: 2px solid #808080;
+    margin: 0 auto;
+
+    /*text-indent: 2em;*/
+    /*border: solid green;
+    border-width: 1px;*/
+    /*text-align: center;*/
+}
+
+
+.progressbar{
+    margin: 0 auto;
+    background-color: #404040;
+    width: 180px;
+    text-align: center;
+
+}
+
+.footer-block-bar{
+    /*width:50%;
+    display: inline-block;
+    text-align: center;
+    margin-top: 10px;
+    border: solid blue;
+    border-width: 1px;*/
+    width:50%;
+    display: inline-block;
+    text-align: center;
+    margin-top: 10px;
+    border: solid blue;
+    border-width: 1px;
+    height: 35px;
+    overflow: hidden;
+
+}

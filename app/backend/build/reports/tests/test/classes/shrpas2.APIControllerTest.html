@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class shrpas2.APIControllerTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class shrpas2.APIControllerTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/shrpas2.html">shrpas2</a> &gt; APIControllerTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">4</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">4.687s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">GetQuizTest</td>
+<td>0.168s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">PostAnwsersTest</td>
+<td>1.562s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getProfile</td>
+<td>0.756s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">postProfile</td>
+<td>2.201s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2017-05-01 00:38:08.447  INFO 12321 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [shrpas2.APIControllerTest], using SpringBootContextLoader
+2017-05-01 00:38:08.448  INFO 12321 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [shrpas2.APIControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2017-05-01 00:38:08.448  INFO 12321 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [shrpas2.APIControllerTest]: APIControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2017-05-01 00:38:08.451  INFO 12321 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration shrpas2.Application for test class shrpas2.APIControllerTest
+2017-05-01 00:38:08.454  INFO 12321 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2017-05-01 00:38:08.456  INFO 12321 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@248318df, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5b378a4e, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@1d133285, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2cbdbdd8, org.springframework.test.context.transaction.TransactionalTestExecutionListener@10440d70, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@774690cc, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@734503bb, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@32573376, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@24887c1, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@41cba7b4, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@1a483ced, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@118f7051]
+Hibernate: select userassess0_.userid as userid1_2_, userassess0_.assessmentid as assessme2_2_, userassess0_.finished as finished3_2_, userassess0_.score as score4_2_ from userassessment userassess0_ where userassess0_.userid=?
+Hibernate: select questions0_.questionid as question1_0_, questions0_.assessmentid as assessme2_0_, questions0_.correctanswer as correcta3_0_, questions0_.hint as hint4_0_, questions0_.option1 as option5_0_, questions0_.option2 as option6_0_, questions0_.option3 as option7_0_, questions0_.option4 as option8_0_, questions0_.question as question9_0_ from questions questions0_ where questions0_.assessmentid=?
+Hibernate: select userassess0_.userid as userid1_2_, userassess0_.assessmentid as assessme2_2_, userassess0_.finished as finished3_2_, userassess0_.score as score4_2_ from userassessment userassess0_ where userassess0_.userid=?
+Hibernate: select questions0_.questionid as question1_0_, questions0_.assessmentid as assessme2_0_, questions0_.correctanswer as correcta3_0_, questions0_.hint as hint4_0_, questions0_.option1 as option5_0_, questions0_.option2 as option6_0_, questions0_.option3 as option7_0_, questions0_.option4 as option8_0_, questions0_.question as question9_0_ from questions questions0_ where questions0_.assessmentid=?
+Hibernate: select user0_.userid as userid1_1_, user0_.useraddress as useraddr2_1_, user0_.useremail as useremai3_1_, user0_.userhomepage as userhome4_1_, user0_.username as username5_1_, user0_.userpass as userpass6_1_, user0_.userphone as userphon7_1_, user0_.userphotopath as userphot8_1_ from user user0_ where user0_.userid=?
+Hibernate: select user0_.userid as userid1_1_, user0_.useraddress as useraddr2_1_, user0_.useremail as useremai3_1_, user0_.userhomepage as userhome4_1_, user0_.username as username5_1_, user0_.userpass as userpass6_1_, user0_.userphone as userphon7_1_, user0_.userphotopath as userphot8_1_ from user user0_ where user0_.userid=?
+Hibernate: select user0_.userid as userid1_1_, user0_.useraddress as useraddr2_1_, user0_.useremail as useremai3_1_, user0_.userhomepage as userhome4_1_, user0_.username as username5_1_, user0_.userpass as userpass6_1_, user0_.userphone as userphon7_1_, user0_.userphotopath as userphot8_1_ from user user0_ where user0_.userid=?
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 3.3</a> at May 1, 2017 12:38:13 AM</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>User.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">backend</a> &gt; <a href="index.source.html" class="el_package">shrpas2.models</a> &gt; <span class="el_source">User.java</span></div><h1>User.java</h1><pre class="source lang-java linenums">package shrpas2.models;
+
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Table(name = &quot;User&quot;)
+public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
+    private long userid;
+
+    // The user's email
+    @NotNull
+    private String useremail;
+
+    // The user's name
+    @NotNull
+    private String username;
+
+    @NotNull
+    private String userpass;
+
+    private String userphone;
+
+    private String useraddress;
+
+    private String userhomepage;
+
+    private String userphotopath;
+
+<span class="fc" id="L34">    public User() { }</span>
+
+<span class="fc" id="L36">    public User(long id) {</span>
+<span class="fc" id="L37">        this.userid = userid;</span>
+<span class="fc" id="L38">    }</span>
+
+<span class="fc" id="L40">    public User(String email, String name, String password) {</span>
+<span class="fc" id="L41">        this.useremail = email;</span>
+<span class="fc" id="L42">        this.username = name;</span>
+<span class="fc" id="L43">        this.userpass = password;</span>
+<span class="fc" id="L44">    }</span>
+
+
+    public long getUserid() {
+<span class="fc" id="L48">        return userid;</span>
+    }
+
+    public void setUserid(long value) {
+<span class="fc" id="L52">        this.userid = value;</span>
+<span class="fc" id="L53">    }</span>
+
+    public String getUseremail() {
+<span class="fc" id="L56">        return useremail;</span>
+    }
+
+    public void setUseremail(String value) {
+<span class="fc" id="L60">        this.useremail = value;</span>
+<span class="fc" id="L61">    }</span>
+
+    public String getUsername() {
+<span class="fc" id="L64">        return username;</span>
+    }
+
+    public void setUsername(String value) {
+<span class="fc" id="L68">        this.username = value;</span>
+<span class="fc" id="L69">    }</span>
+
+    public String getUserpass() {
+<span class="fc" id="L72">        return userpass;</span>
+    }
+
+    public void setUserpass(String value) {
+<span class="fc" id="L76">        this.userpass = value;</span>
+<span class="fc" id="L77">    }</span>
+
+<span class="fc" id="L79">    public String getUserphone(){return userphone; };</span>
+
+<span class="fc" id="L81">    public void setUserphone(String userphone){this.userphone = userphone;}</span>
+
+<span class="fc" id="L83">    public String getUseraddress() {return useraddress;}</span>
+
+<span class="fc" id="L85">    public void setUseraddress(String useraddress) { this.useraddress = useraddress; }</span>
+
+<span class="fc" id="L87">    public String getUserhomepage() {return userhomepage;}</span>
+
+<span class="fc" id="L89">    public void setUserhomepage(String userhomepage) {this.userhomepage = userhomepage;}</span>
+
+<span class="fc" id="L91">    public String getUserphotopath() {return userphotopath;}</span>
+
+<span class="fc" id="L93">    public void setUserphotopath(String userphotopath) {this.userphotopath = userphotopath;}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

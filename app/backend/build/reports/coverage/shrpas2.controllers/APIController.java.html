@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>APIController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">backend</a> &gt; <a href="index.source.html" class="el_package">shrpas2.controllers</a> &gt; <span class="el_source">APIController.java</span></div><h1>APIController.java</h1><pre class="source lang-java linenums">package shrpas2.controllers;
+
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import shrpas2.models.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import shrpas2.services.UserService;
+
+import javax.servlet.ServletException;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+
+@RestController
+@RequestMapping(&quot;/api&quot;)
+<span class="fc" id="L25">public class APIController {</span>
+
+    @Autowired
+    private UserService userservice;
+
+    @Autowired
+    private QuestionRepo questionDao;
+
+    @Autowired
+    private UserAssessmentRepo userAssessmentDao;
+
+    @RequestMapping(value = &quot;assessment/quiz/{userid}&quot;, method = RequestMethod.GET)
+    public List&lt;QuestionJson&gt; getquiz(@PathVariable final String userid) throws ServletException {
+<span class="fc" id="L38">        UserAssessment assessment = userAssessmentDao.findByUserid(Long.parseLong(userid));</span>
+        QuestionJson question;
+<span class="fc" id="L40">        List&lt;QuestionJson&gt; resJson = new ArrayList&lt;QuestionJson&gt;();</span>
+<span class="fc" id="L41">        List&lt;Questions&gt; questions = questionDao.findByAssessmentid(assessment.getAssessmentid());</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">        for (int i = 0; i &lt; questions.size(); i++) {</span>
+<span class="fc" id="L43">            question = new QuestionJson();</span>
+<span class="fc" id="L44">            question.setQuestion(questions.get(i).getQuestion());</span>
+<span class="fc" id="L45">            question.setOptions(questions.get(i).getOptions());</span>
+<span class="fc" id="L46">            resJson.add(question);</span>
+        }
+<span class="fc" id="L48">        return resJson;</span>
+    }
+
+    @RequestMapping(value = &quot;assessment/quiz/{userid}&quot;, method = RequestMethod.POST)
+    public String postAnswers(@PathVariable final String userid, @RequestBody List&lt;Integer&gt; userAnswers){
+<span class="fc" id="L53">        UserAssessment assessment = userAssessmentDao.findByUserid(Long.parseLong(userid));</span>
+        QuestionJson question;
+<span class="fc" id="L55">        List&lt;QuestionJson&gt; resJson = new ArrayList&lt;QuestionJson&gt;();</span>
+<span class="fc" id="L56">        List&lt;Questions&gt; questions = questionDao.findByAssessmentid(assessment.getAssessmentid());</span>
+<span class="fc" id="L57">        int score = 0;</span>
+<span class="fc bfc" id="L58" title="All 2 branches covered.">        for (int i = 0; i &lt; questions.size(); i++) {</span>
+<span class="pc bpc" id="L59" title="1 of 2 branches missed.">            if(questions.get(i).getCorrectanswer() == userAnswers.get(i)){</span>
+<span class="fc" id="L60">                score++;</span>
+            }
+        }
+<span class="fc" id="L63">        score = (int)(((float)score/questions.size())*100);</span>
+<span class="fc" id="L64">        return String.valueOf(score);</span>
+    }
+
+    @RequestMapping(value = &quot;assessment/uploadfile{userid}&quot;, method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity&lt;?&gt; uploadFile(@PathVariable final String userid,
+            @RequestParam(&quot;uploadfile&quot;) MultipartFile uploadfile) {
+
+        try {
+            // Get the filename and build the local file path (be sure that the
+            // application have write permissions on such directory)
+<span class="nc" id="L75">            String filename = uploadfile.getOriginalFilename();</span>
+<span class="nc" id="L76">            filename = &quot;user&quot;+ userid + filename;</span>
+<span class="nc" id="L77">            String directory = &quot;./src/main/resources/videos&quot;;</span>
+<span class="nc" id="L78">            String filepath = Paths.get(directory, filename).toString();</span>
+
+            // Save the file locally
+<span class="nc" id="L81">            BufferedOutputStream stream =</span>
+                    new BufferedOutputStream(new FileOutputStream(new File(filepath)));
+<span class="nc" id="L83">            stream.write(uploadfile.getBytes());</span>
+<span class="nc" id="L84">            stream.close();</span>
+        }
+<span class="nc" id="L86">        catch (Exception e) {</span>
+<span class="nc" id="L87">            System.out.println(e.getMessage());</span>
+<span class="nc" id="L88">            return new ResponseEntity&lt;&gt;(HttpStatus.BAD_REQUEST);</span>
+<span class="nc" id="L89">        }</span>
+
+<span class="nc" id="L91">        return new ResponseEntity&lt;&gt;(HttpStatus.OK);</span>
+    } // method uploadFile
+
+    @RequestMapping(value = &quot;userprofile/{userid}&quot;, method = RequestMethod.GET)
+    public profileJson getprofile(@PathVariable final String userid) throws ServletException {
+<span class="fc" id="L96">        User user = userservice.getByUserId(Long.parseLong(userid));</span>
+<span class="fc" id="L97">        profileJson profile = new profileJson();</span>
+<span class="fc" id="L98">        profile.setProfile(user.getUserphone(),user.getUseraddress(),user.getUserhomepage(),user.getUserphotopath());</span>
+<span class="fc" id="L99">        return profile;</span>
+    }
+
+    @RequestMapping(value = &quot;userprofile/{userid}&quot;, method = RequestMethod.POST)
+    public ResponseEntity&lt;?&gt; postprofile(@PathVariable final String userid, @RequestBody profileJson profile){
+<span class="fc" id="L104">        User user = userservice.getByUserId(Long.parseLong(userid));</span>
+<span class="fc" id="L105">        user.setUserphone(profile.getPhone());</span>
+<span class="fc" id="L106">        user.setUseraddress(profile.getAddress());</span>
+<span class="fc" id="L107">        user.setUserhomepage(profile.getHomepage());</span>
+<span class="fc" id="L108">        userservice.update(user);</span>
+<span class="fc" id="L109">        return new ResponseEntity&lt;&gt;(HttpStatus.OK);</span>
+    }
+
+    @RequestMapping(value = &quot;userphoto/{userid}&quot;, method = RequestMethod.POST)
+    @ResponseBody
+    public String uploadphoto(@PathVariable final String userid,
+                                         @RequestParam(&quot;file&quot;) MultipartFile file) {
+        String filename;
+<span class="nc" id="L117">        User user = userservice.getByUserId(Long.parseLong(userid));</span>
+
+        try {
+<span class="nc" id="L120">            filename = file.getOriginalFilename();</span>
+
+<span class="nc" id="L122">            filename = &quot;user&quot; + userid + filename;</span>
+<span class="nc bnc" id="L123" title="All 2 branches missed.">            if(!filename.endsWith(&quot;test.txt&quot;)) {</span>
+<span class="nc" id="L124">                user.setUserphotopath(filename);</span>
+<span class="nc" id="L125">                userservice.update(user);</span>
+<span class="nc" id="L126">                String directory = &quot;./src/main/resources/photos&quot;;</span>
+<span class="nc" id="L127">                String filepath = Paths.get(directory, filename).toString();</span>
+                // Save the file locally
+<span class="nc" id="L129">                BufferedOutputStream stream =</span>
+                        new BufferedOutputStream(new FileOutputStream(new File(filepath)));
+<span class="nc" id="L131">                stream.write(file.getBytes());</span>
+<span class="nc" id="L132">                stream.close();</span>
+            }
+        }
+<span class="nc" id="L135">        catch (Exception e) {</span>
+<span class="nc" id="L136">            System.out.println(e.getMessage());</span>
+<span class="nc" id="L137">            return null;</span>
+<span class="nc" id="L138">        }</span>
+<span class="nc" id="L139">        return filename;</span>
+    }
+    
+    
+<span class="fc" id="L143">    public static class profileJson {</span>
+        public String phone;
+        public String address;
+        public String homepage;
+        public String photopath;
+        public void setProfile(String phone, String address, String homepage, String photopath){
+<span class="fc" id="L149">            this.phone = phone;</span>
+<span class="fc" id="L150">            this.address = address;</span>
+<span class="fc" id="L151">            this.homepage = homepage;</span>
+<span class="fc" id="L152">            this.photopath = photopath;</span>
+<span class="fc" id="L153">        }</span>
+
+<span class="fc" id="L155">        public String getPhone(){return phone;}</span>
+<span class="fc" id="L156">        public String getAddress(){return address;}</span>
+<span class="fc" id="L157">        public String getHomepage(){return homepage;}</span>
+<span class="fc" id="L158">        public String getPhotopath(){return photopath;}</span>
+
+<span class="fc" id="L160">        public void setPhone(String phone){this.phone = phone;}</span>
+<span class="fc" id="L161">        public void setAddress(String address) { this.address = address;}</span>
+<span class="fc" id="L162">        public void setHomepage(String homepage) {this.homepage = homepage;}</span>
+<span class="fc" id="L163">        public void setPhotopath(String photopath) {this.photopath = photopath;}</span>
+
+
+
+    }
+
+<span class="fc" id="L169">    public static class QuestionJson {</span>
+        public String question;
+        public List&lt;String&gt; options;
+<span class="fc" id="L172">        public void setQuestion(String question) {this.question = question;}</span>
+<span class="fc" id="L173">        public void setOptions(List&lt;String&gt; options) {this.options = options;}</span>
+<span class="fc" id="L174">        public String getQuestion(){return question;}</span>
+<span class="fc" id="L175">        public List&lt;String&gt; getOptions() {return options;}</span>
+    }
+
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

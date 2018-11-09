@@ -1,0 +1,59 @@
+@media (min-width: 770px) {
+  .panel {
+    width: 40%;
+    margin: 20px 10px;
+    margin: 0 auto;
+  }
+  .former {
+    padding-top: 0px;
+  }
+  .col2{
+    float: left;
+  }
+  #logo{
+    display: inline-block;
+    margin: 10px 10px;
+    padding: 5px 5px;
+    font-style: normal;
+    border-style: solid;
+    font-weight: 900;
+    font-size: 20px;
+  }
+  #upload {
+    width: 80%;
+  }
+  .logintxt {
+    margin: 2px;
+    padding-left: 4px;
+  }
+  .greettxt{
+    display: inline-block;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #holder{
+    width: 100%;
+  }
+  .assessintro {
+    width: 700px
+  }
+  .choices1, .choices2 {
+    width: 40%;
+    display: inline-block;
+    padding: 10px;
+    margin-left: 40px;
+
+  }
+  .choices1 button, .choices2 button{
+    width: 100%;
+  }
+  .choices2 {
+    margin-top: 10px;
+  }
+  .quizpanel {
+    width: 700px;
+  }
+  .buttonpanel {
+    margin: 0 auto;
+  }

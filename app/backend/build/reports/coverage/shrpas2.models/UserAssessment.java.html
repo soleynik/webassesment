@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserAssessment.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">backend</a> &gt; <a href="index.source.html" class="el_package">shrpas2.models</a> &gt; <span class="el_source">UserAssessment.java</span></div><h1>UserAssessment.java</h1><pre class="source lang-java linenums">package shrpas2.models;
+
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+
+@Entity
+@Table(name = &quot;userassessment&quot;)
+public class UserAssessment {
+
+    @Id
+    private long userid;
+    @NotNull
+    private long assessmentid;
+
+<span class="fc" id="L17">    public UserAssessment() { }</span>
+
+<span class="fc" id="L19">    public UserAssessment(long userid, long assessmentid) {</span>
+<span class="fc" id="L20">        this.userid = userid;</span>
+<span class="fc" id="L21">        this.assessmentid = assessmentid;</span>
+<span class="fc" id="L22">    }</span>
+
+    public long getUserid() {
+<span class="fc" id="L25">        return userid;</span>
+    }
+
+    public long getAssessmentid(){
+<span class="fc" id="L29">        return assessmentid;</span>
+    }
+}
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

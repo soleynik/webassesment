@@ -1,0 +1,21 @@
+<h1 id="shrpas2">shrpas2</h1>
+<h2 id="prereqs">prereqs</h2>
+<ol style="list-style-type: decimal">
+<li>have node.js installed and in your system path</li>
+<li>have java version 8 or above installed and in system path</li>
+</ol>
+<h2 id="building-the-project">building the project</h2>
+<p>in your command line inside the root folder type ### NOTE: you must run these commands as <strong>admin</strong> in windows run as administrator the terminal in linux preface the command with sudo, same with mac</p>
+<pre><code>./gradlew assemble</code></pre>
+<p>this will build all the necessary files together in the project</p>
+<h2 id="running-the-project">running the project</h2>
+<p>after the project is built you may run the project with</p>
+<pre><code>java -jar backend/build/libs/backend.jar</code></pre>
+<h2 id="build-and-run">build and run</h2>
+<p>you may tie together the scripts to build and run the project. to make this easier create a build file to automate this process.</p>
+<p>ex:</p>
+<pre><code>./gradlew assemble &amp;&amp; java -jar backend/build/libs/backend.jar</code></pre>
+<h2 id="testing">testing</h2>
+<p>to test you need to call</p>
+<pre><code>./gradlew frontend/backend:test</code></pre>
+<p>you may remove frontend if you are testing only the backend,and backend if you are testing the frontend. you may keep both if you wish to run tests for both projects.</p>

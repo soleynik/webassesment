@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Question.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">backend</a> &gt; <a href="index.source.html" class="el_package">shrpas2.models</a> &gt; <span class="el_source">Question.java</span></div><h1>Question.java</h1><pre class="source lang-java linenums">package shrpas2.models;
+
+
+
+import java.util.ArrayList;
+
+
+
+public class Question {
+    private Long id;
+    private String question;
+    private ArrayList&lt;String&gt; choice;
+    private String hint;
+    private int correct;
+
+<span class="fc" id="L16">    public Question(Long id, String question, ArrayList&lt;String&gt; choice, String hint, int correct) {</span>
+<span class="fc" id="L17">        this.id = id;</span>
+<span class="fc" id="L18">        this.question = question;</span>
+<span class="fc" id="L19">        this.choice = choice;</span>
+<span class="fc" id="L20">        this.hint = hint;</span>
+<span class="fc" id="L21">        this.correct = correct;</span>
+<span class="fc" id="L22">    };</span>
+
+    public Long getId(){
+<span class="fc" id="L25">        return id;</span>
+    }
+
+    public void setId(Long id){
+<span class="fc" id="L29">        this.id = id;</span>
+<span class="fc" id="L30">    }</span>
+
+    public String getQuestion(){
+<span class="fc" id="L33">        return question;</span>
+    }
+
+    public void setQuestion(String question){
+<span class="fc" id="L37">        this.question = question;</span>
+<span class="fc" id="L38">    }</span>
+
+    public String getHint(){
+<span class="fc" id="L41">        return hint;</span>
+    }
+
+    public void setHint(String hint){
+<span class="fc" id="L45">        this.hint = hint;</span>
+<span class="fc" id="L46">    }</span>
+
+    public int getCorrect(){
+<span class="fc" id="L49">        return correct;</span>
+    }
+
+    public void setCorrect(int correct){
+<span class="fc" id="L53">        this.correct = correct;</span>
+<span class="fc" id="L54">    }</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

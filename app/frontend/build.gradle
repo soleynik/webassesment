@@ -1,0 +1,37 @@
+import org.apache.tools.ant.taskdefs.condition.Os
+
+apply plugin: 'java'
+
+task npmInstall(type: Exec) {
+	if(Os.isFamily(Os.FAMILY_WINDOWS)) {
+      commandLine 'npm.cmd', 'install'
+    } else {
+      commandLine 'npm', 'install'
+    }
+}
+
+task npmBuild(type: Exec) {
+	if(Os.isFamily(Os.FAMILY_WINDOWS)) {
+      commandLine 'npm.cmd', 'run', 'build'
+    } else {
+      commandLine 'npm', 'run', 'build'
+    }
+    dependsOn npmInstall
+}
+
+task npmTest(type: Exec) {
+	if(Os.isFamily(Os.FAMILY_WINDOWS)) {
+      commandLine 'npm.cmd', 'run', 'test'
+    } else {
+      commandLine 'npm', 'run', 'test'
+    }
+    dependsOn npmBuild
+}
+
+jar {
+    from(fileTree("${projectDir}/dist")) {
+        into "META-INF/resources"
+    }
+
+    dependsOn npmTest
+}

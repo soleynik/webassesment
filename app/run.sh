@@ -1,0 +1,1 @@
+java -jar backend/build/libs/backend.jar

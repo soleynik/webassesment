@@ -1,0 +1,88 @@
+{
+	"qid": 1,
+	"question": "What frequency range is the High Frequency band?",
+	"choice": ["100 kHz", "1 GHz", "30 to 300 MHz", "3 to 30 MHz"],
+	"hint": "The HF band is based on frequencies 3 to 30 Mhz. AM radio stations are in the HF band but normally are stated in kilohertz."
+	"correct": 3
+},
+{
+	"qid": 2,
+	"question": "Which motor is NOT suitable for use as a DC machine?",
+	"choice": ["Permanent magnet motor", "Series motor", "Squirrel cage motor", "Synchronous motor"],
+	"hint": "The squirrel cage motor is the only one without any connection to the armature."
+	"correct": 2
+},
+{
+	"qid": 3,
+	"question": "What does the term PLC stand for?",
+	"choice": ["Programmable Lift Computer", "Program List Control", "Programmable Logic Controller", "Piezo Lamp Connector"],
+	"hint": "Used in manufacturing, engineering, and process operations."
+	"correct": 2
+},
+{
+	"qid": 4,
+	"question": "Which consists of two plates separated by a dielectric and can store a charge?",
+	"choice": ["Inductor", "Capacitor", "Transistor", "Relay"],
+	"hint": "Useful in tuning and filtering circuits, it blocks DC while passing AC. How much charge a capacitor can store is its capacitance, measured in farads."
+	"correct": 1
+},
+{
+	"qid": 5,
+	"question": "What does AM mean?",
+	"choice": ["Angelo marconi", "Anno median", "Amplitude modulation", "Amperes"],
+	"hint": "Amplitude modulation was the first type to be used in radio. It works well with HF and morse code."
+	"correct": 2
+},
+{
+	"qid": 6,
+	"question": "The average power (in watts) used by a 20 to 25 inch home color television is?",
+	"choice": ["70-100", "25-50", "500-800", "Over 1000"],
+	"hint": "About the same as as the most popular light bulb size."
+	"correct": 0
+},
+{
+	"qid": 7,
+	"question": "In which decade was the ARRL founded?",
+	"choice": ["Electric Programmable Read Only Memory", "Erasable Programmable Read Only Memory", "Evaluable Philotic Random Optic Memory", "Every Person Requires One Mind"],
+	"hint": "On April 6, 1914, Hiram Percy Maxim proposed the formation of the American Radio Relay League."
+	"correct": 3
+},
+{
+	"qid": 8,
+	"question": "What does EPROM stand for?",
+	"choice": ["Electric Programmable Read Only Memory", "Erasable Programmable Read Only Memory", "Evaluable Philotic Random Optic Memory", "Every Person Requires One Mind"],
+	"hint": "A chip found in alomst every microprocessor..."
+	"correct": 1
+},
+{
+	"qid": 9,
+	"question": "Made from a variety of materials, such as carbon, which inhibits the flow of current...?",
+	"choice": ["Choke", "Inductor", "Resistor", "Capacitor"],
+	"hint": "So named because it resists (or inhibits) the flow of current."
+	"correct": 2
+},
+{
+	"qid": 10,
+	"question": "Which is NOT an acceptable method of distributing small power outlets throughout an open plan office area?",
+	"choice": ["Power Poles", "Power Skirting", "Flush Floor Ducting", "Extension Cords"],
+	"hint": "Extension cords can be a tripping hazard, and can be easily damaged."
+	"correct": 3
+},
+{
+	"qid": 11,
+	"question": "Sometimes computers and cache registers in a foodmart are connected to a UPS system. What does UPS mean?",
+	"choice": ["United Parcel Service", "Uniform Product Support", "Under Paneling Storage", "Uninterruptable Power Supply"],
+	"hint": "An uninterruptable power supply (UPS) is a backup power supply."
+	"correct": 3
+},
+{
+	"qid": 12,
+	"question": "In the UK, what type of installation requires a fireman's switch?",
+	"choice": ["Neon Lighting", "High Pressure Sodium Lighting", "Water Features", "Hotel Rooms"],
+	"hint": "Neon lighting runs at a high voltage, typically above 1000 Volts."
+	"correct": 0
+}
+
+	
+
+
